@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MHK — AI Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ── BACKGROUND ─────────────────────────────── -->
+  <div class="bg-grid"></div>
+  <div class="bg-vignette"></div>
+  <div class="bg-blob b1"></div>
+  <div class="bg-blob b2"></div>
+  <div class="bg-blob b3"></div>
+  <div class="bg-particles" id="bgParticles"></div>
+
+  <!-- ── NAV ────────────────────────────────────── -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <div class="nav-logo">MHK<span class="dot">.</span></div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#showcase">Showcase</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="#contact" class="btn-primary nav-cta">Let's Talk</a>
+    </div>
+  </nav>
+
+  <!-- ── HERO ───────────────────────────────────── -->
+  <section class="hero" id="about">
+    <div class="hero-inner">
+
+      <!-- Left: copy -->
+      <div class="hero-text" data-reveal="left">
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          Available for Projects
+        </div>
+        <h1 class="hero-title">
+          Turning Attention<br />
+          <span class="gradient-text">Into Growth</span>
+        </h1>
+        <p class="hero-desc">
+          Founder of SolNftFinder with 1000+ collaborations since 2019.
+          I help projects grow through content, strategy, partnerships,
+          and community building.
+        </p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn-primary">View Work</a>
+          <a href="#showcase" class="btn-ghost">View Proof</a>
+        </div>
+        <div class="mini-stats">
+          <div class="mini-stat" data-reveal="up" data-delay="0">
+            <span class="ms-val"><span data-count="100">0</span>K+</span>
+            <span class="ms-label">Audience</span>
+          </div>
+          <div class="ms-div"></div>
+          <div class="mini-stat" data-reveal="up" data-delay="80">
+            <span class="ms-val"><span data-count="1000">0</span>+</span>
+            <span class="ms-label">Collaborations</span>
+          </div>
+          <div class="ms-div"></div>
+          <div class="mini-stat" data-reveal="up" data-delay="160">
+            <span class="ms-val"><span data-count="6">0</span>+</span>
+            <span class="ms-label">Years in Crypto</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: profile visual -->
+      <div class="hero-visual" id="heroVisual" data-reveal="right">
+
+        <!-- Deep radial glow behind frame -->
+        <div class="hv-glow"></div>
+
+        <!-- SVG partial orbit arcs -->
+        <svg class="hv-orbits" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <filter id="gDotC" x="-100%" y="-100%" width="300%" height="300%">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="3.5" result="blur"/>
+              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+            <filter id="gDotV" x="-100%" y="-100%" width="300%" height="300%">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="2.5" result="blur"/>
+              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+            <filter id="gDotO" x="-100%" y="-100%" width="300%" height="300%">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur"/>
+              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
+
+          <!-- Arc 1: Tall cyan ellipse, main, CW 17s -->
+          <g>
+            <ellipse cx="300" cy="300" rx="168" ry="218"
+              stroke="#38bdf8" stroke-width="1.3" fill="none"
+              stroke-dasharray="530 950" stroke-linecap="round" opacity="0.55"/>
+            <circle cx="300" cy="82" r="5" fill="#38bdf8" filter="url(#gDotC)" opacity="0.95"/>
+            <animateTransform attributeName="transform" type="rotate"
+              from="0 300 300" to="360 300 300" dur="17s" repeatCount="indefinite"/>
+          </g>
+
+          <!-- Arc 2: Violet wide ellipse, CCW 27s, starts at 40° -->
+          <g>
+            <ellipse cx="300" cy="300" rx="264" ry="188"
+              stroke="#818cf8" stroke-width="1.1" fill="none"
+              stroke-dasharray="410 1250" stroke-linecap="round" opacity="0.42"/>
+            <circle cx="564" cy="300" r="4.5" fill="#a78bfa" filter="url(#gDotV)" opacity="0.88"/>
+            <animateTransform attributeName="transform" type="rotate"
+              from="40 300 300" to="-320 300 300" dur="27s" repeatCount="indefinite"/>
+          </g>
+
+          <!-- Arc 3: Faint outermost blue, CW 45s -->
+          <g>
+            <ellipse cx="300" cy="300" rx="288" ry="278"
+              stroke="#1d4ed8" stroke-width="0.9" fill="none"
+              stroke-dasharray="350 1800" stroke-linecap="round" opacity="0.32"/>
+            <circle cx="300" cy="22" r="3.5" fill="#38bdf8" filter="url(#gDotO)" opacity="0.7"/>
+            <animateTransform attributeName="transform" type="rotate"
+              from="0 300 300" to="360 300 300" dur="45s" repeatCount="indefinite"/>
+          </g>
+
+          <!-- Arc 4: Small inner cyan, CCW 11s -->
+          <g>
+            <ellipse cx="300" cy="300" rx="132" ry="164"
+              stroke="#38bdf8" stroke-width="0.9" fill="none"
+              stroke-dasharray="185 760" stroke-linecap="round" opacity="0.32"/>
+            <circle cx="300" cy="136" r="3" fill="#38bdf8" filter="url(#gDotC)" opacity="0.75"/>
+            <animateTransform attributeName="transform" type="rotate"
+              from="0 300 300" to="-360 300 300" dur="11s" repeatCount="indefinite"/>
+          </g>
+
+          <!-- Arc 5: Teal diagonal tiny, CW 8s -->
+          <g>
+            <ellipse cx="300" cy="300" rx="108" ry="98"
+              stroke="#34d399" stroke-width="0.7" fill="none"
+              stroke-dasharray="110 580" stroke-linecap="round" opacity="0.28"/>
+            <animateTransform attributeName="transform" type="rotate"
+              from="60 300 300" to="420 300 300" dur="8s" repeatCount="indefinite"/>
+          </g>
+        </svg>
+
+        <!-- Profile stage — carries floating animation + 3D tilt -->
+        <div class="pf-stage" id="pfStage">
+          <!-- Layered border rings -->
+          <div class="pf-ring pf-ring-outer"></div>
+          <div class="pf-ring pf-ring-mid"></div>
+
+          <!-- The actual glass frame -->
+          <div class="profile-frame" id="profileFrame">
+            <img src="assets/pfp.png" alt="MHK" class="pf-img" />
+            <div class="pf-color-overlay"></div>
+            <div class="pf-rim"></div>
+            <div class="pf-bottom-beam"></div>
+            <div class="pf-sweep"></div>
+          </div>
+        </div>
+
+        <!-- Front orbit arc — appears above the profile frame -->
+        <svg class="hv-orbits hv-orbits-front" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <filter id="gDotCF" x="-100%" y="-100%" width="300%" height="300%">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur"/>
+              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
+          <!-- Bottom portion of Arc 1 — same timing = seamless orbit illusion -->
+          <g>
+            <ellipse cx="300" cy="300" rx="168" ry="218"
+              stroke="#38bdf8" stroke-width="1.6" fill="none"
+              stroke-dasharray="260 970" stroke-dashoffset="-190"
+              stroke-linecap="round" opacity="0.72"/>
+            <circle cx="300" cy="518" r="5.5" fill="#38bdf8" filter="url(#gDotCF)" opacity="0"/>
+            <animateTransform attributeName="transform" type="rotate"
+              from="0 300 300" to="360 300 300" dur="17s" repeatCount="indefinite"/>
+          </g>
+        </svg>
+
+        <!-- Floating particles (CSS animated) -->
+        <span class="pt pt-1"></span>
+        <span class="pt pt-2"></span>
+        <span class="pt pt-3"></span>
+        <span class="pt pt-4"></span>
+        <span class="pt pt-5"></span>
+        <span class="pt pt-6"></span>
+        <span class="pt pt-7"></span>
+        <span class="pt pt-8"></span>
+
+        <!-- Orbital project logo system -->
+        <div class="orb-system" aria-hidden="true">
+          <!-- Decorative ring tracks -->
+          <div class="orb-track orb-track-a"></div>
+          <div class="orb-track orb-track-b"></div>
+          <div class="orb-track orb-track-c"></div>
+
+          <!-- Inner ring (r=165px, 26s CW): HTX + GMGN -->
+          <div class="orb-node ob-htx">
+            <div class="orb-badge">
+              <img src="assets/htx.jpg" alt="" class="orb-logo"/>
+              <span class="orb-label">HTX Global</span>
+            </div>
+          </div>
+          <div class="orb-node ob-gmgn">
+            <div class="orb-badge">
+              <img src="assets/gmgn.jpg" alt="" class="orb-logo"/>
+              <span class="orb-label">GMGN</span>
+            </div>
+          </div>
+
+          <!-- Middle ring (r=212px, 40s CCW): OneKey + Infini -->
+          <div class="orb-node ob-onekey">
+            <div class="orb-badge">
+              <img src="assets/onekey.jpg" alt="" class="orb-logo"/>
+              <span class="orb-label">OneKey</span>
+            </div>
+          </div>
+          <div class="orb-node ob-infini">
+            <div class="orb-badge">
+              <img src="assets/infini.jpg" alt="" class="orb-logo"/>
+              <span class="orb-label">Infini</span>
+            </div>
+          </div>
+
+          <!-- Outer ring (r=262px, 54s CW): GAIMIN + MNFST -->
+          <div class="orb-node ob-gaimin">
+            <div class="orb-badge">
+              <img src="assets/gaimin.jpg" alt="" class="orb-logo"/>
+              <span class="orb-label">GAIMIN</span>
+            </div>
+          </div>
+          <div class="orb-node ob-mnfst">
+            <div class="orb-badge">
+              <img src="assets/mnfst.png" alt="" class="orb-logo"/>
+              <span class="orb-label">MNFST</span>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /hero-visual -->
+    </div>
+  </section>
+
+  <!-- ── PROJECTS ──────────────────────────────── -->
+  <section class="section" id="projects">
+    <div class="section-inner">
+      <div class="section-label" data-reveal="up">WHAT I DO</div>
+      <h2 class="section-title" data-reveal="up" data-delay="60">Services &amp; <span class="gradient-text">Expertise</span></h2>
+      <p class="section-sub" data-reveal="up" data-delay="120">Content strategy, partnerships, and community building for crypto projects since 2019.</p>
+
+      <div class="projects-grid">
+
+        <!-- Card 1: X Growth & Content -->
+        <div class="project-card glass-card" data-accent="cyan" data-reveal="up" data-delay="0">
+          <div class="pc-top">
+            <span class="pc-tag">CONTENT</span>
+            <span class="pc-status live">Active</span>
+          </div>
+          <div class="pc-visual pc-vis-x">
+            <div class="pv-x-inner">
+              <div class="pv-x-header">
+                <img src="assets/pfp.png" class="pv-x-av" onerror="this.style.opacity=0"/>
+                <div class="pv-x-user">
+                  <span class="pv-x-name">mhk 發
+                    <svg viewBox="0 0 22 22" width="11" height="11" style="flex-shrink:0"><circle cx="11" cy="11" r="11" fill="#1d9bf0"/><path d="M6 11.5l3.5 3.5 6.5-7" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                  <span class="pv-x-handle">@mhknft</span>
+                </div>
+                <span class="pv-x-xlogo">𝕏</span>
+              </div>
+              <div class="pv-x-lines">
+                <div class="pv-x-line" style="width:90%"></div>
+                <div class="pv-x-line" style="width:74%"></div>
+                <div class="pv-x-line" style="width:52%"></div>
+              </div>
+              <div class="pv-x-stats">
+                <span>213.4K views</span>
+                <span>1.1K likes</span>
+                <span>311 RT</span>
+              </div>
+            </div>
+            <div class="pv-x-glow"></div>
+          </div>
+          <h3 class="pc-name">X Growth &amp; Content</h3>
+          <p class="pc-desc">I help projects grow through strategic content on X. From threads and quote tweets to positioning and mindshare.</p>
+          <div class="pc-metrics"><span>100M+ total impressions</span><span class="sep">·</span><span>1000+ posts</span></div>
+          <a href="#showcase" class="pc-link">View Examples →</a>
+          <div class="card-glow"></div>
+        </div>
+
+        <!-- Card 2: Collaborations & Community (featured) -->
+        <div class="project-card glass-card featured" data-accent="violet" data-reveal="up" data-delay="110">
+          <div class="pc-ribbon">Featured</div>
+          <div class="pc-top">
+            <span class="pc-tag">PARTNERSHIPS</span>
+            <span class="pc-status live">Active</span>
+          </div>
+          <div class="pc-visual pc-vis-logos">
+            <div class="pv-logo-grid">
+              <div class="pv-logo-item"><img src="assets/htx.jpg" alt="HTX"/></div>
+              <div class="pv-logo-item"><img src="assets/onekey.jpg" alt="OneKey"/></div>
+              <div class="pv-logo-item"><img src="assets/gmgn.jpg" alt="GMGN"/></div>
+              <div class="pv-logo-item"><img src="assets/gaimin.jpg" alt="GAIMIN"/></div>
+              <div class="pv-logo-item"><img src="assets/infini.jpg" alt="Infini"/></div>
+              <div class="pv-logo-item"><img src="assets/mnfst.png" alt="MNFST"/></div>
+            </div>
+          </div>
+          <h3 class="pc-name">Collaborations &amp; Community</h3>
+          <p class="pc-desc">Worked with 1000+ collaborations across crypto projects, communities, exchanges, and launch campaigns since 2019.</p>
+          <div class="pc-metrics"><span>1000+ collabs</span><span class="sep">·</span><span>6+ years</span></div>
+          <a href="#contact" class="pc-link">See Partners →</a>
+          <div class="card-glow"></div>
+        </div>
+
+        <!-- Card 3: Growth Strategy -->
+        <div class="project-card glass-card" data-accent="green" data-reveal="up" data-delay="220">
+          <div class="pc-top">
+            <span class="pc-tag">STRATEGY</span>
+            <span class="pc-status live">Open</span>
+          </div>
+          <div class="pc-visual pc-vis-net">
+            <svg class="pv-net-svg" viewBox="0 0 220 130" preserveAspectRatio="xMidYMid meet" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="trendGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#1d4ed8" stop-opacity="0.5"/>
+                  <stop offset="100%" stop-color="#34d399"/>
+                </linearGradient>
+                <filter id="nGlow"><feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+              </defs>
+              <circle cx="110" cy="65" r="36" stroke="rgba(52,211,153,.12)" stroke-width="1" stroke-dasharray="5 5"/>
+              <circle cx="110" cy="65" r="56" stroke="rgba(56,189,248,.08)"  stroke-width="1" stroke-dasharray="3 6"/>
+              <line x1="110" y1="65" x2="40"  y2="28"  stroke="#38bdf8" stroke-width="0.9" opacity="0.35"/>
+              <line x1="110" y1="65" x2="185" y2="22"  stroke="#818cf8" stroke-width="0.9" opacity="0.30"/>
+              <line x1="110" y1="65" x2="22"  y2="100" stroke="#38bdf8" stroke-width="0.9" opacity="0.28"/>
+              <line x1="110" y1="65" x2="200" y2="98"  stroke="#818cf8" stroke-width="0.9" opacity="0.28"/>
+              <line x1="110" y1="65" x2="70"  y2="118" stroke="#34d399" stroke-width="0.9" opacity="0.32"/>
+              <line x1="110" y1="65" x2="158" y2="118" stroke="#34d399" stroke-width="0.9" opacity="0.32"/>
+              <circle cx="40"  cy="28"  r="5"   fill="rgba(56,189,248,.18)"  stroke="#38bdf8" stroke-width="1.2" filter="url(#nGlow)"/>
+              <circle cx="185" cy="22"  r="4.5" fill="rgba(129,140,248,.18)" stroke="#818cf8" stroke-width="1.2" filter="url(#nGlow)"/>
+              <circle cx="22"  cy="100" r="4"   fill="rgba(56,189,248,.14)"  stroke="#38bdf8" stroke-width="1"/>
+              <circle cx="200" cy="98"  r="4"   fill="rgba(129,140,248,.14)" stroke="#818cf8" stroke-width="1"/>
+              <circle cx="70"  cy="118" r="3.5" fill="rgba(52,211,153,.16)"  stroke="#34d399" stroke-width="1"/>
+              <circle cx="158" cy="118" r="3.5" fill="rgba(52,211,153,.16)"  stroke="#34d399" stroke-width="1"/>
+              <polyline points="15,118 45,100 72,84 98,60 122,46 152,30 182,16"
+                stroke="url(#trendGrad)" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="110" cy="65" r="14" fill="rgba(52,211,153,.07)" stroke="rgba(52,211,153,.30)" stroke-width="1.2"/>
+              <circle cx="110" cy="65" r="6.5" fill="#34d399" opacity="0.88" filter="url(#nGlow)"/>
+            </svg>
+            <div class="pv-net-glow"></div>
+          </div>
+          <h3 class="pc-name">Growth Strategy</h3>
+          <p class="pc-desc">I help projects find the right positioning, community angle, and content strategy to turn attention into growth.</p>
+          <div class="pc-metrics"><span>Content</span><span class="sep">·</span><span>Partnerships</span><span class="sep">·</span><span>Community</span></div>
+          <a href="#contact" class="pc-link">Learn More →</a>
+          <div class="card-glow"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── METRICS STRIP ─────────────────────────── -->
+  <div class="metrics-strip">
+    <div class="metrics-inner">
+      <div class="metric-item" data-reveal="up" data-delay="0">
+        <svg class="metric-spark" viewBox="0 0 120 44" fill="none">
+          <defs>
+            <linearGradient id="sg" x1="0" y1="0" x2="120" y2="0" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#1e40af"/><stop offset="100%" stop-color="#38bdf8"/>
+            </linearGradient>
+          </defs>
+          <polyline points="0,40 20,32 40,36 60,12 80,8 100,3 120,6"
+            stroke="url(#sg)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="100" cy="3" r="4" fill="#38bdf8"/>
+        </svg>
+        <div>
+          <div class="metric-val">400%</div>
+          <div class="metric-lbl">Conversion Rate Growth</div>
+          <div class="metric-sub">Increase vs last month</div>
+        </div>
+      </div>
+      <div class="metric-sep"></div>
+      <div class="metric-item" data-reveal="up" data-delay="100">
+        <div class="metric-donut">
+          <svg viewBox="0 0 56 56" fill="none">
+            <circle cx="28" cy="28" r="22" stroke="#0f2a4a" stroke-width="5"/>
+            <circle cx="28" cy="28" r="22" stroke="url(#dg)" stroke-width="5"
+              stroke-dasharray="138 138" stroke-dashoffset="47"
+              stroke-linecap="round" transform="rotate(-90 28 28)"/>
+            <defs>
+              <linearGradient id="dg" x1="0" y1="0" x2="56" y2="56" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#1d4ed8"/><stop offset="100%" stop-color="#38bdf8"/>
+              </linearGradient>
+            </defs>
+          </svg>
+          <span>66%</span>
+        </div>
+        <div>
+          <div class="metric-val">66%</div>
+          <div class="metric-lbl">User Retention</div>
+          <div class="metric-sub">30-day average</div>
+        </div>
+      </div>
+      <div class="metric-sep"></div>
+      <div class="metric-item" data-reveal="up" data-delay="200">
+        <div>
+          <div class="metric-val">6h 34m</div>
+          <div class="metric-lbl">Avg. Time to Ship</div>
+          <div class="metric-sub">Idea → deployed product</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SHOWCASE ───────────────────────────────── -->
+  <section class="section" id="showcase">
+    <div class="section-inner">
+      <div class="section-label" data-reveal="up">CREDIBILITY</div>
+      <h2 class="section-title" data-reveal="up" data-delay="60">Proof of <span class="gradient-text">Work</span></h2>
+      <p class="section-sub" data-reveal="up" data-delay="120">Real partnerships, real recognition — not just numbers.</p>
+
+      <div class="sc-grid">
+
+        <!-- FEATURED: Nikita Bier -->
+        <a href="https://x.com/nikitabier/status/1980095280860340479" target="_blank" rel="noopener"
+           class="sc-card sc-featured glass-card" data-reveal="left" data-delay="0">
+          <div class="sc-text-area">
+            <div class="sc-head">
+              <div class="sc-av-wrap sc-av-nikita-wrap">
+                <img src="assets/nikita.png" class="sc-av-img" onerror="this.style.opacity=0"/>
+                <div class="sc-av-fb sc-av-nikita">NB</div>
+              </div>
+              <div class="sc-user">
+                <span class="sc-name">Nikita Bier <svg class="v-mark" viewBox="0 0 22 22"><circle cx="11" cy="11" r="11" fill="#1d9bf0"/><path d="M6 11.5l3.5 3.5 6.5-7" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                <span class="sc-handle">@nikitabier</span>
+              </div>
+              <div class="sc-type-tag">Featured Mention</div>
+            </div>
+            <p class="sc-body">"We recently improved the trending stories feature for X. It's really really good."</p>
+          </div>
+          <div class="sc-img-fill">
+            <img src="assets/tweet-nikita.png" class="sc-fill-img" alt="" onerror="this.style.display='none'"/>
+            <div class="sc-img-overlay"></div>
+            <div class="sc-card-bar">
+              <span class="sc-tag sc-tag-blue">RECOGNITION</span>
+              <span class="sc-bar-stats">311 · 65 · 1.1K · 213.4K views</span>
+              <span class="sc-ext-btn"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 10L10 2M5 2h5v5"/></svg></span>
+            </div>
+          </div>
+          <div class="sc-sweep"></div>
+          <div class="card-glow cg-blue-strong"></div>
+        </a>
+
+        <!-- RIGHT COLUMN -->
+        <div class="sc-right-col">
+
+          <!-- HTX Global -->
+          <a href="https://x.com/mhknft/status/1934484307705524542" target="_blank" rel="noopener"
+             class="sc-card sc-small sc-htx glass-card" data-reveal="right" data-delay="80">
+            <div class="sc-mini-area">
+              <div class="sc-head">
+                <div class="sc-av-wrap"><img src="assets/pfp.png" class="sc-av-img" onerror="this.style.opacity=0"/><div class="sc-av-fb">MHK</div></div>
+                <div class="sc-user">
+                  <span class="sc-name">mhk 發 <svg class="v-mark" viewBox="0 0 22 22"><circle cx="11" cy="11" r="11" fill="#1d9bf0"/><path d="M6 11.5l3.5 3.5 6.5-7" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="sc-handle">@mhknft</span>
+                </div>
+                <span class="sc-x-logo">𝕏</span>
+              </div>
+              <p class="sc-mini-text">Good Morning Legends! 🌅 Proud to join the <strong>@HTX_Global</strong> family 💎 Badge's looking clean too, right? 👀</p>
+            </div>
+            <div class="sc-img-fill">
+              <img src="assets/tweet-htx.png" class="sc-fill-img" alt="" onerror="this.style.display='none'"/>
+              <div class="sc-img-overlay"></div>
+              <div class="sc-card-bar">
+                <span class="sc-tag sc-tag-gold">MILESTONE</span>
+                <span class="sc-ext-btn"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 10L10 2M5 2h5v5"/></svg></span>
+              </div>
+            </div>
+            <div class="card-glow cg-gold"></div>
+          </a>
+
+          <!-- OneKey -->
+          <a href="https://x.com/mhknft/status/1927317288836891071" target="_blank" rel="noopener"
+             class="sc-card sc-small sc-onekey glass-card" data-reveal="right" data-delay="170">
+            <div class="sc-mini-area">
+              <div class="sc-head">
+                <div class="sc-av-wrap"><img src="assets/pfp.png" class="sc-av-img" onerror="this.style.opacity=0"/><div class="sc-av-fb">MHK</div></div>
+                <div class="sc-user">
+                  <span class="sc-name">mhk 發 <svg class="v-mark" viewBox="0 0 22 22"><circle cx="11" cy="11" r="11" fill="#1d9bf0"/><path d="M6 11.5l3.5 3.5 6.5-7" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="sc-handle">@mhknft</span>
+                </div>
+                <span class="sc-x-logo">𝕏</span>
+              </div>
+              <p class="sc-mini-text">Excited to join <strong>@OneKeyHQ</strong> as an ambassador! 💚 100% open-source. Built for DeFi, NFTs &amp; multi-chain users.</p>
+            </div>
+            <div class="sc-img-fill">
+              <img src="assets/tweet-onekey.png" class="sc-fill-img" alt="" onerror="this.style.display='none'"/>
+              <div class="sc-img-overlay"></div>
+              <div class="sc-card-bar">
+                <span class="sc-tag sc-tag-teal">AMBASSADOR</span>
+                <span class="sc-ext-btn"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 10L10 2M5 2h5v5"/></svg></span>
+              </div>
+            </div>
+            <div class="card-glow cg-teal"></div>
+          </a>
+
+          <!-- GMGN -->
+          <a href="https://x.com/mhknft/status/1903447189332091288" target="_blank" rel="noopener"
+             class="sc-card sc-small sc-gmgn glass-card" data-reveal="right" data-delay="260">
+            <div class="sc-mini-area">
+              <div class="sc-head">
+                <div class="sc-av-wrap"><img src="assets/pfp.png" class="sc-av-img" onerror="this.style.opacity=0"/><div class="sc-av-fb">MHK</div></div>
+                <div class="sc-user">
+                  <span class="sc-name">mhk 發 <svg class="v-mark" viewBox="0 0 22 22"><circle cx="11" cy="11" r="11" fill="#1d9bf0"/><path d="M6 11.5l3.5 3.5 6.5-7" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="sc-handle">@mhknft</span>
+                </div>
+                <span class="sc-x-logo">𝕏</span>
+              </div>
+              <p class="sc-mini-text">Happy to share that I've joined <strong>@gmgnai</strong> as an ambassador! Can't wait to show you what they've built. 🐊</p>
+            </div>
+            <div class="sc-img-fill">
+              <img src="assets/tweet-gmgn.png" class="sc-fill-img" alt="" onerror="this.style.display='none'"/>
+              <div class="sc-img-overlay"></div>
+              <div class="sc-card-bar">
+                <span class="sc-tag sc-tag-green">PARTNERSHIP</span>
+                <span class="sc-ext-btn"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 10L10 2M5 2h5v5"/></svg></span>
+              </div>
+            </div>
+            <div class="card-glow cg-green"></div>
+          </a>
+
+        </div><!-- /.sc-right-col -->
+
+      </div><!-- /.sc-grid -->
+    </div>
+  </section>
+
+  <!-- ── GROWTH ENGINE ─────────────────────────── -->
+  <section class="section hx-section">
+    <div class="section-inner hx-inner">
+
+      <!-- Animated hex core -->
+      <div class="hx-wrap" data-reveal="left">
+        <div class="hx-bg-glow"></div>
+        <svg class="hx-svg" viewBox="-200 -200 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <filter id="hxGH" x="-100%" y="-100%" width="300%" height="300%">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="b"/>
+              <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+            <filter id="hxGP" x="-300%" y="-300%" width="700%" height="700%">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="3.5" result="b"/>
+              <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+            <filter id="hxGL" x="-80%" y="-80%" width="260%" height="260%">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="1.8" result="b"/>
+              <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+            <radialGradient id="hxFill" cx="50%" cy="50%" r="50%">
+              <stop offset="0%"   stop-color="#38bdf8" stop-opacity="0.10"/>
+              <stop offset="60%"  stop-color="#1d4ed8" stop-opacity="0.05"/>
+              <stop offset="100%" stop-color="#0ea5e9" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+
+          <!-- Ambient pulse rings -->
+          <circle cx="0" cy="0" r="115" fill="none" stroke="#38bdf8" stroke-width="0.5" class="hx-pr1"/>
+          <circle cx="0" cy="0" r="92"  fill="rgba(56,189,248,.04)" class="hx-pr2"/>
+
+          <!-- TOP FLOW LINES -->
+          <path id="ht1" pathLength="1" d="M -44,-200 Q -22,-128  -8,-73" class="hx-line hx-lt1"/>
+          <path id="ht2" pathLength="1" d="M -15,-200 Q  -7,-128  -3,-73" class="hx-line hx-lt2 hx-bright" filter="url(#hxGL)"/>
+          <path id="ht3" pathLength="1" d="M  15,-200 Q   7,-128   3,-73" class="hx-line hx-lt3 hx-bright" filter="url(#hxGL)"/>
+          <path id="ht4" pathLength="1" d="M  44,-200 Q  22,-128   8,-73" class="hx-line hx-lt4"/>
+
+          <!-- BOTTOM FLOW LINES -->
+          <path id="hb1" pathLength="1" d="M -44,200  Q -22,128   -8,73"  class="hx-line hx-lb1"/>
+          <path id="hb2" pathLength="1" d="M -15,200  Q  -7,128   -3,73"  class="hx-line hx-lb2 hx-bright" filter="url(#hxGL)"/>
+          <path id="hb3" pathLength="1" d="M  15,200  Q   7,128    3,73"  class="hx-line hx-lb3 hx-bright" filter="url(#hxGL)"/>
+          <path id="hb4" pathLength="1" d="M  44,200  Q  22,128    8,73"  class="hx-line hx-lb4"/>
+
+          <!-- RIGHT FLOW LINES -->
+          <path id="hr1" pathLength="1" d="M 200,-42  Q 130,-22  65,-20"  class="hx-line hx-lr1"/>
+          <path id="hr2" pathLength="1" d="M 200,-14  Q 130, -7  65, -7"  class="hx-line hx-lr2 hx-bright" filter="url(#hxGL)"/>
+          <path id="hr3" pathLength="1" d="M 200, 14  Q 130,  7  65,  7"  class="hx-line hx-lr3 hx-bright" filter="url(#hxGL)"/>
+          <path id="hr4" pathLength="1" d="M 200, 42  Q 130, 22  65, 20"  class="hx-line hx-lr4"/>
+
+          <!-- LEFT FLOW LINES -->
+          <path id="hl1" pathLength="1" d="M -200,-42 Q -130,-22 -65,-20" class="hx-line hx-ll1"/>
+          <path id="hl2" pathLength="1" d="M -200,-14 Q -130, -7 -65, -7" class="hx-line hx-ll2 hx-bright" filter="url(#hxGL)"/>
+          <path id="hl3" pathLength="1" d="M -200, 14 Q -130,  7 -65,  7" class="hx-line hx-ll3 hx-bright" filter="url(#hxGL)"/>
+          <path id="hl4" pathLength="1" d="M -200, 42 Q -130, 22 -65, 20" class="hx-line hx-ll4"/>
+
+          <!-- FLOW PARTICLES -->
+          <circle r="2.8" fill="#38bdf8" opacity="0.90" filter="url(#hxGP)"><animateMotion dur="1.90s" repeatCount="indefinite" begin="0.00s"><mpath href="#ht1"/></animateMotion></circle>
+          <circle r="2.0" fill="#7dd3fc" opacity="0.72" filter="url(#hxGP)"><animateMotion dur="2.50s" repeatCount="indefinite" begin="-1.20s"><mpath href="#ht3"/></animateMotion></circle>
+          <circle r="2.8" fill="#38bdf8" opacity="0.90" filter="url(#hxGP)"><animateMotion dur="2.10s" repeatCount="indefinite" begin="-0.70s"><mpath href="#hb2"/></animateMotion></circle>
+          <circle r="2.0" fill="#7dd3fc" opacity="0.72" filter="url(#hxGP)"><animateMotion dur="2.70s" repeatCount="indefinite" begin="-1.50s"><mpath href="#hb4"/></animateMotion></circle>
+          <circle r="2.8" fill="#38bdf8" opacity="0.90" filter="url(#hxGP)"><animateMotion dur="1.60s" repeatCount="indefinite" begin="-0.40s"><mpath href="#hr1"/></animateMotion></circle>
+          <circle r="2.0" fill="#7dd3fc" opacity="0.75" filter="url(#hxGP)"><animateMotion dur="2.30s" repeatCount="indefinite" begin="-1.00s"><mpath href="#hr3"/></animateMotion></circle>
+          <circle r="2.8" fill="#38bdf8" opacity="0.90" filter="url(#hxGP)"><animateMotion dur="2.00s" repeatCount="indefinite" begin="-0.90s"><mpath href="#hl2"/></animateMotion></circle>
+          <circle r="2.0" fill="#7dd3fc" opacity="0.72" filter="url(#hxGP)"><animateMotion dur="2.60s" repeatCount="indefinite" begin="-0.30s"><mpath href="#hl4"/></animateMotion></circle>
+
+          <!-- HEXAGON LAYERS -->
+          <polygon points="0,-72 62,-36 62,36 0,72 -62,36 -62,-36" fill="none" stroke="#38bdf8" stroke-width="12" opacity="0.06" filter="url(#hxGH)" class="hx-bloom"/>
+          <polygon points="0,-72 62,-36 62,36 0,72 -62,36 -62,-36" fill="none" stroke="#38bdf8" stroke-width="3"  opacity="0.18" class="hx-mid"/>
+          <polygon points="0,-72 62,-36 62,36 0,72 -62,36 -62,-36" fill="url(#hxFill)" stroke="#38bdf8" stroke-width="1.8" opacity="0.95" filter="url(#hxGH)" class="hx-main"/>
+          <polygon points="0,-48 42,-24 42,24 0,48 -42,24 -42,-24" fill="none" stroke="#38bdf8" stroke-width="0.7" opacity="0.20"/>
+          <circle cx="0" cy="0" r="10" fill="rgba(56,189,248,.22)" filter="url(#hxGH)" class="hx-cglow"/>
+          <circle cx="0" cy="0" r="4"  fill="#38bdf8" opacity="0.82" filter="url(#hxGP)" class="hx-cdot"/>
+        </svg>
+      </div>
+
+      <!-- Text block -->
+      <div class="hx-text" data-reveal="right" data-delay="100">
+        <div class="section-label">CURRENT FOCUS</div>
+        <h2 class="section-title hx-headline">Growth <span class="gradient-text">Engine</span></h2>
+        <p class="hx-sub">Turning content, partnerships, and community into momentum.</p>
+        <div class="hx-tags">
+          <span class="hx-tag hx-tag-c">Content</span>
+          <span class="hx-tag hx-tag-p">Partnerships</span>
+          <span class="hx-tag hx-tag-cm">Community</span>
+        </div>
+        <p class="hx-tagline">Always building. Always growing.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── CONTACT ────────────────────────────────── -->
+  <section class="section contact-section" id="contact">
+    <div class="section-inner contact-inner">
+
+      <!-- Left: copy -->
+      <div class="contact-left" data-reveal="left">
+        <div class="section-label">GET IN TOUCH</div>
+        <h2 class="section-title">Ready to <span class="gradient-text">Build Together?</span></h2>
+        <p class="contact-desc">
+          Open to partnerships, ambassador deals, and strategic collaborations.
+          If you have a project that needs real growth — let's talk.
+        </p>
+        <div class="contact-btns">
+          <a href="mailto:mhk.partnership@gmail.com" class="btn-primary">Send a Message</a>
+          <a href="https://twitter.com/mhknft" class="btn-ghost">Follow on X</a>
+        </div>
+        <div class="contact-note">
+          <span class="cn-pulse"></span>
+          Typically responds within 24 hours
+        </div>
+      </div>
+
+      <!-- Right: glass contact card -->
+      <div class="contact-right" data-reveal="right" data-delay="100">
+        <div class="contact-card glass-card">
+          <!-- Card header: avatar + name -->
+          <div class="cc-header">
+            <div class="cc-avatar-wrap">
+              <img src="assets/pfp.png" class="cc-avatar" onerror="this.style.opacity=0"/>
+              <div class="cc-avatar-fb">MHK</div>
+            </div>
+            <div>
+              <div class="cc-name">mhk 發
+                <svg class="cc-verified" viewBox="0 0 22 22"><circle cx="11" cy="11" r="11" fill="#1d9bf0"/><path d="M6 11.5l3.5 3.5 6.5-7" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div class="cc-handle">@mhknft</div>
+            </div>
+          </div>
+
+          <!-- Availability -->
+          <div class="cc-avail">
+            <span class="cc-avail-dot"></span>
+            <span class="cc-avail-text">Available for new projects</span>
+            <span class="cc-slots">2 slots open</span>
+          </div>
+
+          <div class="cc-divider"></div>
+
+          <!-- Detail rows -->
+          <div class="cc-rows">
+            <a href="mailto:mhk.partnership@gmail.com" class="cc-row cc-row-link">
+              <div class="cc-row-icon">📧</div>
+              <div class="cc-row-body">
+                <span class="cc-lbl">Email</span>
+                <span class="cc-val">mhk.partnership@gmail.com</span>
+              </div>
+              <span class="cc-arrow">→</span>
+            </a>
+            <a href="https://twitter.com/mhknft" class="cc-row cc-row-link">
+              <div class="cc-row-icon">𝕏</div>
+              <div class="cc-row-body">
+                <span class="cc-lbl">Twitter / X</span>
+                <span class="cc-val">@mhknft</span>
+              </div>
+              <span class="cc-arrow">→</span>
+            </a>
+            <a href="https://t.me/mhknft" class="cc-row cc-row-link">
+              <div class="cc-row-icon">✈️</div>
+              <div class="cc-row-body">
+                <span class="cc-lbl">Telegram</span>
+                <span class="cc-val">@mhknft</span>
+              </div>
+              <span class="cc-arrow">→</span>
+            </a>
+            <div class="cc-row">
+              <div class="cc-row-icon">🎮</div>
+              <div class="cc-row-body">
+                <span class="cc-lbl">Discord</span>
+                <span class="cc-val">@mhk</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-glow cg-cyan"></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── FOOTER ─────────────────────────────────── -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">MHK<span class="dot">.</span></div>
+      <p class="footer-tag">Building the future, one product at a time.</p>
+      <div class="footer-links">
+        <a href="#">Twitter</a><a href="#">GitHub</a><a href="#">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

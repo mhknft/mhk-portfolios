@@ -187,6 +187,20 @@ body {
 @keyframes shimmer { from{background-position:0 center} to{background-position:220% center} }
 
 .hero-desc  { font-size:16px; color:var(--muted); max-width:440px; margin-bottom:34px; line-height:1.80; }
+
+/* Inline brand / project links within body text */
+.inline-link {
+  color: var(--cyan);
+  text-decoration: none;
+  font-weight: 700;
+  border-bottom: 1px solid rgba(56,189,248,.30);
+  transition: color .22s, border-color .22s, text-shadow .22s;
+}
+.inline-link:hover {
+  color: #7dd3fc;
+  border-bottom-color: rgba(125,211,252,.70);
+  text-shadow: 0 0 14px rgba(56,189,248,.50);
+}
 .hero-actions { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:42px; }
 .mini-stats { display:flex; align-items:center; gap:18px; }
 .ms-div     { width:1px; height:30px; background:rgba(56,189,248,.14); }

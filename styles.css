@@ -1154,6 +1154,9 @@ body {
 .cc-row-link:hover .cc-row-icon {
   background:rgba(56,189,248,.18); border-color:rgba(56,189,248,.38);
 }
+/* Platform logo images inside icon box */
+.cc-row-icon-img { padding:0; overflow:hidden; background:transparent; }
+.cc-platform-logo { width:100%; height:100%; object-fit:cover; display:block; border-radius:9px; }
 .cc-row-body { display:flex; flex-direction:column; flex:1; }
 .cc-lbl      { font-size:10.5px; font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:.8px; }
 .cc-val      { font-size:13.5px; font-weight:600; color:#fff; margin-top:1px; }

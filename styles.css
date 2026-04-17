@@ -613,6 +613,130 @@ body {
 .metric-sub { font-size:11px; color:var(--muted); }
 .metric-sep { width:1px; height:54px; background:linear-gradient(to bottom,transparent,var(--border),transparent); }
 
+/* ── Falling Crypto Token Visual ── */
+.mc-visual {
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 10px;
+}
+
+/* Contained stage — dark glass box */
+.mc-stage {
+  position: relative;
+  width: 138px; height: 96px;
+  overflow: hidden;
+  border-radius: 18px;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% 105%, rgba(56,189,248,.12) 0%, transparent 100%),
+    linear-gradient(180deg, rgba(1,4,20,.98) 0%, rgba(3,11,38,.96) 100%);
+  border: 1px solid rgba(56,189,248,.16);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.055) inset,
+    0 2px 32px rgba(0,0,0,.60),
+    0 0 40px rgba(56,189,248,.06);
+}
+
+/* Top fade — coins dissolve in from the dark */
+.mc-stage::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 24px;
+  background: linear-gradient(to bottom, rgba(1,4,20,.90), transparent);
+  z-index: 3; pointer-events: none;
+}
+
+/* Each coin: flat disc viewed at angle — gradient = metallic depth */
+.mc-coin {
+  position: absolute;
+  width: 34px; height: 11px;
+  border-radius: 50%;
+  background: linear-gradient(to bottom,
+    rgba(224,242,254,.94)  0%,
+    rgba(125,211,252,.90) 20%,
+    rgba(56,189,248,.84)  40%,
+    rgba(14,165,233,.72)  65%,
+    rgba(7,89,133,.52)   100%
+  );
+  box-shadow:
+    0 2.5px 0 rgba(2,48,88,.88),       /* coin thickness / edge */
+    0 4px 20px rgba(56,189,248,.62),   /* glow halo */
+    0 1px 6px rgba(56,189,248,.30),    /* ambient fill */
+    0 -1.5px 0 rgba(255,255,255,.65) inset; /* specular rim highlight */
+  animation: mc-fall 2.8s ease-in infinite;
+  z-index: 2;
+}
+
+/* SVG specular ring overlay — rides exactly on top of each coin */
+.mc-face-svg {
+  position: absolute;
+  width: 34px; height: 11px;
+  animation: mc-fall 2.8s ease-in infinite;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0;
+}
+
+/* Horizontal stagger — 3 coins across the 138px stage */
+.mc-c1, .mc-face-1 { left: 10px; animation-delay: 0s; }
+.mc-c2, .mc-face-2 { left: 52px; animation-delay: -0.93s; }
+.mc-c3, .mc-face-3 { left: 94px; animation-delay: -1.87s; }
+
+@keyframes mc-fall {
+  0%   { transform: translateY(-15px); opacity: 0; }
+  7%   { opacity: 1; }
+  82%  { opacity: 0.88; }
+  100% { transform: translateY(104px); opacity: 0; }
+}
+
+/* Glowing elliptical floor ring */
+.mc-ring {
+  position: absolute;
+  bottom: 11px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 94px; height: 24px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(56,189,248,.52);
+  box-shadow:
+    0 0 14px rgba(56,189,248,.38),
+    0 0 36px rgba(56,189,248,.16),
+    0 0 6px  rgba(56,189,248,.55) inset;
+  animation: mc-ring-pulse 2.8s ease-in-out infinite;
+  z-index: 1;
+}
+
+@keyframes mc-ring-pulse {
+  0%, 100% {
+    border-color: rgba(56,189,248,.40);
+    box-shadow: 0 0 10px rgba(56,189,248,.28), 0 0 26px rgba(56,189,248,.10), 0 0 4px rgba(56,189,248,.40) inset;
+  }
+  38%, 62% {
+    border-color: rgba(56,189,248,.85);
+    box-shadow: 0 0 24px rgba(56,189,248,.72), 0 0 55px rgba(56,189,248,.28), 0 0 8px rgba(56,189,248,.65) inset;
+  }
+}
+
+/* Warm ambient glow beneath the ring */
+.mc-base-glow {
+  position: absolute;
+  bottom: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 80px; height: 28px;
+  background: radial-gradient(ellipse at 50% 100%,
+    rgba(56,189,248,.22) 0%,
+    rgba(56,189,248,.08) 50%,
+    transparent 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Label beneath the stage */
+.mc-label {
+  font-size: 8.5px; font-weight: 800;
+  letter-spacing: 2.2px; text-transform: uppercase;
+  color: rgba(148,163,184,.42);
+}
+
 /* =============================================
    SHOWCASE — FAN DECK
 ============================================= */

@@ -390,26 +390,29 @@
         </div>
       </div>
       <div class="metric-sep"></div>
-      <div class="metric-item" data-reveal="up" data-delay="100">
-        <div class="metric-donut">
-          <svg viewBox="0 0 56 56" fill="none">
-            <circle cx="28" cy="28" r="22" stroke="#0f2a4a" stroke-width="5"/>
-            <circle cx="28" cy="28" r="22" stroke="url(#dg)" stroke-width="5"
-              stroke-dasharray="138 138" stroke-dashoffset="47"
-              stroke-linecap="round" transform="rotate(-90 28 28)"/>
-            <defs>
-              <linearGradient id="dg" x1="0" y1="0" x2="56" y2="56" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stop-color="#1d4ed8"/><stop offset="100%" stop-color="#38bdf8"/>
-              </linearGradient>
-            </defs>
+      <!-- Animated coin-drop visual (replaces center metric) -->
+      <div class="metric-item mc-visual" data-reveal="up" data-delay="100">
+        <div class="mc-stage">
+          <!-- Falling tokens -->
+          <div class="mc-coin mc-c1"></div>
+          <div class="mc-coin mc-c2"></div>
+          <div class="mc-coin mc-c3"></div>
+          <!-- Coin specular lines (inline SVG for the face pattern) -->
+          <svg class="mc-face-svg mc-face-1" viewBox="0 0 34 11" fill="none">
+            <ellipse cx="17" cy="5.5" rx="8" ry="1.6" stroke="rgba(255,255,255,0.22)" stroke-width="0.8"/>
           </svg>
-          <span>66%</span>
+          <svg class="mc-face-svg mc-face-2" viewBox="0 0 34 11" fill="none">
+            <ellipse cx="17" cy="5.5" rx="8" ry="1.6" stroke="rgba(255,255,255,0.22)" stroke-width="0.8"/>
+          </svg>
+          <svg class="mc-face-svg mc-face-3" viewBox="0 0 34 11" fill="none">
+            <ellipse cx="17" cy="5.5" rx="8" ry="1.6" stroke="rgba(255,255,255,0.22)" stroke-width="0.8"/>
+          </svg>
+          <!-- Glowing floor ring -->
+          <div class="mc-ring"></div>
+          <!-- Ambient base glow -->
+          <div class="mc-base-glow"></div>
         </div>
-        <div>
-          <div class="metric-val">66%</div>
-          <div class="metric-lbl">User Retention</div>
-          <div class="metric-sub">30-day average</div>
-        </div>
+        <span class="mc-label">Ecosystem</span>
       </div>
       <div class="metric-sep"></div>
       <div class="metric-item" data-reveal="up" data-delay="200">
@@ -427,7 +430,7 @@
     <div class="section-inner">
       <div class="section-label" data-reveal="up">CREDIBILITY</div>
       <h2 class="section-title" data-reveal="up" data-delay="60">Proof of <span class="gradient-text">Work</span></h2>
-      <p class="section-sub" data-reveal="up" data-delay="120">Real partnerships, real recognition — not just numbers.</p>
+      <p class="section-sub" data-reveal="up" data-delay="120">A few moments that mattered.</p>
 
       <!-- Premium 4-card fan deck -->
       <div class="sd-deck" data-reveal="up" data-delay="60">

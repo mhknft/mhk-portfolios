@@ -322,118 +322,125 @@ body {
 .pt-8{width:4px;height:4px;top:65%;right:6%;opacity:.60;animation-duration:5.8s;animation-delay:1.3s;background:var(--green);box-shadow:0 0 6px var(--green)}
 @keyframes pt-float { 0%,100%{transform:translateY(0) scale(1)} 50%{transform:translateY(-18px) scale(1.3)} }
 
-/* ── Orbital Logo System ── */
-.orb-system {
-  position:absolute; top:50%; left:50%;
-  transform:translate(-50%,-50%);
-  width:0; height:0; z-index:15;
+/* ── Partner Ecosystem Belt ── */
+.eco-belt {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 520px;
+  overflow: hidden;
+  z-index: 20;
+  pointer-events: none;
+  /* Soft fade at both edges so badges emerge/dissolve naturally */
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0,0,0,1) 16%,
+    rgba(0,0,0,1) 84%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0,0,0,1) 16%,
+    rgba(0,0,0,1) 84%,
+    transparent 100%
+  );
 }
 
-/* Decorative ring tracks — centred on the same origin */
-.orb-track {
-  position:absolute; border-radius:50%;
-  top:0; left:0; transform:translate(-50%,-50%);
-  pointer-events:none;
-}
-.orb-track-a {
-  width:330px; height:330px;
-  border:1px solid rgba(56,189,248,.13);
-  box-shadow:0 0 40px rgba(56,189,248,.04) inset;
-}
-.orb-track-b {
-  width:424px; height:424px;
-  border:1px solid rgba(129,140,248,.10);
-}
-.orb-track-c {
-  width:524px; height:524px;
-  border:1px solid rgba(56,189,248,.07);
+/* Subtle glowing divider line — the "track" the badges ride on */
+.eco-belt::before {
+  content: '';
+  position: absolute;
+  left: 10%; right: 10%;
+  top: 42px; /* sits just below badge logo, above label */
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(56,189,248,.18) 30%,
+    rgba(56,189,248,.18) 70%,
+    transparent
+  );
+  pointer-events: none;
+  z-index: 0;
 }
 
-/* Each node is a 0×0 anchor; the animation moves it along its orbit */
-.orb-node {
-  position:absolute; top:0; left:0;
-  width:0; height:0; pointer-events:none;
+/* Scrolling flex row — 12 badges (2 identical sets of 6) */
+.eco-track {
+  display: flex;
+  align-items: flex-start;
+  width: max-content;
+  pointer-events: all;
+  animation: eco-scroll 28s linear infinite;
 }
+/* Pause on hover anywhere in the belt */
+.eco-belt:hover .eco-track { animation-play-state: paused; }
 
-/* Glassmorphism badge */
-.orb-badge {
-  position:absolute;
-  width:44px; height:44px;
-  top:-22px; left:-22px;
-  border-radius:50%;
-  background:rgba(4,12,40,.92);
-  backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
-  border:1px solid rgba(56,189,248,.26);
+/* Each badge slot: 56px logo + 20px right margin = 76px per slot.
+   12 slots × 76px = 912px total.  –50% = –456px = exactly 6 slots. Seamless. */
+.eco-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  margin-right: 20px;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  transition: transform .35s cubic-bezier(.22,1,.36,1);
+}
+.eco-badge:hover { transform: translateY(-5px); }
+
+/* Glass logo tile */
+.eco-logo-wrap {
+  width: 56px; height: 56px;
+  border-radius: 15px;
+  background: rgba(3,9,32,.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(56,189,248,.20);
   box-shadow:
-    0 0 0 1px rgba(255,255,255,.07) inset,
-    0 0 18px rgba(56,189,248,.22),
-    0 6px 22px rgba(0,0,0,.60);
-  overflow:hidden;
-  display:flex; align-items:center; justify-content:center;
-  pointer-events:all; cursor:pointer;
-  transition:transform .38s cubic-bezier(.22,1,.36,1),
-             box-shadow .38s, border-color .38s;
+    0 0 0 1px rgba(255,255,255,.06) inset,
+    0 0 14px rgba(56,189,248,.16),
+    0 6px 20px rgba(0,0,0,.55);
+  overflow: hidden;
+  transition: border-color .35s, box-shadow .35s;
 }
-.orb-badge:hover {
-  transform:scale(1.35);
-  border-color:rgba(56,189,248,.65);
+.eco-badge:hover .eco-logo-wrap {
+  border-color: rgba(56,189,248,.52);
   box-shadow:
-    0 0 0 1px rgba(255,255,255,.12) inset,
-    0 0 30px rgba(56,189,248,.60),
-    0 10px 30px rgba(0,0,0,.70);
-  z-index:30;
-}
-.orb-logo {
-  width:100%; height:100%; object-fit:cover; display:block;
+    0 0 0 1px rgba(255,255,255,.11) inset,
+    0 0 22px rgba(56,189,248,.42),
+    0 8px 26px rgba(0,0,0,.65);
 }
 
-/* Tooltip — appears below badge on hover */
-.orb-label {
-  position:absolute;
-  top:calc(100% + 7px); left:50%; transform:translateX(-50%);
-  font-size:8px; font-weight:800; letter-spacing:1.2px; text-transform:uppercase;
-  color:rgba(224,231,255,.90); white-space:nowrap;
-  background:rgba(2,8,24,.82); padding:2px 7px; border-radius:4px;
-  pointer-events:none; opacity:0;
-  transition:opacity .22s;
-  text-shadow:none;
+/* Logo image — slightly muted to unify into the dark palette */
+.eco-logo {
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+  filter: saturate(0.65) brightness(0.88);
+  transition: filter .35s;
 }
-.orb-badge:hover .orb-label { opacity:1; }
-
-/* ─ Inner ring r=165px · 26s CW ─ */
-.ob-htx  { animation:orb-htx  26s linear infinite; }
-.ob-gmgn { animation:orb-gmgn 26s linear infinite; }
-@keyframes orb-htx  {
-  from { transform:rotate(20deg)  translateX(165px) rotate(-20deg); }
-  to   { transform:rotate(380deg) translateX(165px) rotate(-380deg); }
-}
-@keyframes orb-gmgn {
-  from { transform:rotate(200deg) translateX(165px) rotate(-200deg); }
-  to   { transform:rotate(560deg) translateX(165px) rotate(-560deg); }
+.eco-badge:hover .eco-logo {
+  filter: saturate(1) brightness(1.05);
 }
 
-/* ─ Middle ring r=212px · 40s CCW ─ */
-.ob-onekey { animation:orb-onekey 40s linear infinite; }
-.ob-infini { animation:orb-infini 40s linear infinite; }
-@keyframes orb-onekey {
-  from { transform:rotate(75deg)   translateX(212px) rotate(-75deg); }
-  to   { transform:rotate(-285deg) translateX(212px) rotate(285deg); }
+/* Label */
+.eco-name {
+  font-size: 8px; font-weight: 700;
+  letter-spacing: 1.4px; text-transform: uppercase;
+  color: rgba(148,163,184,.45);
+  transition: color .35s;
+  white-space: nowrap;
 }
-@keyframes orb-infini {
-  from { transform:rotate(255deg)  translateX(212px) rotate(-255deg); }
-  to   { transform:rotate(-105deg) translateX(212px) rotate(105deg); }
-}
+.eco-badge:hover .eco-name { color: rgba(56,189,248,.80); }
 
-/* ─ Outer ring r=262px · 54s CW ─ */
-.ob-gaimin { animation:orb-gaimin 54s linear infinite; }
-.ob-mnfst  { animation:orb-mnfst  54s linear infinite; }
-@keyframes orb-gaimin {
-  from { transform:rotate(130deg) translateX(262px) rotate(-130deg); }
-  to   { transform:rotate(490deg) translateX(262px) rotate(-490deg); }
-}
-@keyframes orb-mnfst {
-  from { transform:rotate(310deg) translateX(262px) rotate(-310deg); }
-  to   { transform:rotate(670deg) translateX(262px) rotate(-670deg); }
+@keyframes eco-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
 
 /* =============================================
@@ -1076,7 +1083,8 @@ body {
   .sc-large { grid-column:span 1; }
   .metrics-inner { flex-direction:column; align-items:flex-start; }
   .metric-sep { display:none; }
-  .orb-system { transform:translate(-50%,-50%) scale(0.72); }
+  .eco-belt { width:340px; bottom:18px; }
+  .eco-logo-wrap { width:46px; height:46px; border-radius:12px; }
   .hv-orbits { width:480px; height:480px; }
   .progress-card { padding:28px 22px; }
   .xcard-ms-grid { grid-template-columns:repeat(2,1fr); }

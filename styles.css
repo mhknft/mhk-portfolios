@@ -799,15 +799,108 @@ body {
 }
 
 /* Per-card accent borders */
-.sd-nikita { border-color:rgba(56,189,248,.30); }
+.sd-nikita { border-color:rgba(129,140,248,.38); }
 .sd-htx    { border-color:rgba(245,158,11,.24); }
 .sd-onekey { border-color:rgba(20,184,166,.24); }
 .sd-gmgn   { border-color:rgba(52,211,153,.24); }
 
 /* Hover box-shadows per accent */
 .sd-w1:hover .sd-nikita {
-  box-shadow:0 24px 56px rgba(0,0,0,.70), 0 0 80px rgba(56,189,248,.22),
+  box-shadow:0 24px 56px rgba(0,0,0,.72), 0 0 80px rgba(129,140,248,.30),
     0 1px 0 rgba(255,255,255,.10) inset;
+}
+
+/* ── Nikita premium recognition card ── */
+.sdn-top {
+  padding: 13px 14px 0;
+  flex-shrink: 0;
+}
+.sdn-feat {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 7.5px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase;
+  color: rgba(167,139,250,.90);
+  padding: 3px 10px 3px 8px;
+  border: 1px solid rgba(139,92,246,.35);
+  border-radius: 50px;
+  background: rgba(139,92,246,.09);
+}
+.sdn-feat-dot {
+  width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0;
+  background: rgba(167,139,250,.85);
+  box-shadow: 0 0 7px rgba(139,92,246,.70);
+}
+
+.sdn-who {
+  padding: 11px 14px 6px;
+  display: flex; align-items: center; gap: 10px;
+  flex-shrink: 0;
+}
+.sdn-who-text {
+  display: flex; flex-direction: column; gap: 1px;
+}
+.sdn-by {
+  font-size: 9px; font-weight: 700; letter-spacing: .8px; text-transform: uppercase;
+  color: rgba(148,163,184,.55);
+}
+.sdn-name {
+  font-size: 13px; font-weight: 800; color: #fff;
+  display: flex; align-items: center; gap: 4px; line-height: 1.3;
+}
+.sdn-handle {
+  font-size: 10.5px; color: var(--muted);
+}
+
+.sdn-quote {
+  padding: 5px 14px 11px;
+  font-size: 14.5px; font-weight: 700; line-height: 1.48;
+  color: #e2e8f0;
+  flex-shrink: 0;
+}
+
+/* Darken tweet image so it sits inside the dark card naturally */
+.sd-nikita .sd-img {
+  object-position: center 14%;
+  filter: brightness(0.68) saturate(0.70);
+  transition: transform .55s cubic-bezier(.22,1,.36,1), filter .45s;
+}
+.sd-w1:hover .sd-nikita .sd-img {
+  filter: brightness(0.80) saturate(0.85);
+}
+
+/* "View on X" footer */
+.sdn-foot {
+  padding: 8px 14px 11px;
+  border-top: 1px solid rgba(255,255,255,.07);
+  display: flex; align-items: center; gap: 7px;
+  flex-shrink: 0;
+}
+.sdn-x-ico {
+  width: 12px; height: 12px; flex-shrink: 0;
+  color: rgba(148,163,184,.55);
+  transition: color .25s;
+}
+.sdn-view-lbl {
+  flex: 1;
+  font-size: 11px; font-weight: 700;
+  color: rgba(148,163,184,.60);
+  transition: color .25s;
+}
+.sdn-view-arr {
+  font-size: 11px; font-weight: 700;
+  color: rgba(148,163,184,.35);
+  transition: transform .25s, color .25s;
+}
+.sd-w1:hover .sdn-x-ico  { color: rgba(167,139,250,.85); }
+.sd-w1:hover .sdn-view-lbl { color: rgba(167,139,250,.90); }
+.sd-w1:hover .sdn-view-arr { color: rgba(167,139,250,.70); transform: translateX(3px); }
+
+/* Violet glow variant for Nikita card */
+.cg-violet {
+  background: linear-gradient(90deg, transparent, #818cf8, transparent);
+  box-shadow: 0 0 22px 5px rgba(129,140,248,.50), 0 0 60px 14px rgba(129,140,248,.18);
+}
+.sd-w1:hover .cg-violet {
+  box-shadow: 0 0 36px 9px rgba(129,140,248,.76), 0 0 90px 24px rgba(129,140,248,.30);
 }
 .sd-w2:hover .sd-htx {
   box-shadow:0 24px 56px rgba(0,0,0,.70), 0 0 80px rgba(245,158,11,.22),
@@ -936,9 +1029,7 @@ body {
   background:linear-gradient(90deg,transparent,#38bdf8,transparent);
   box-shadow:0 0 28px 7px rgba(56,189,248,.55), 0 0 80px 20px rgba(56,189,248,.22);
 }
-.sd-w1:hover .cg-blue-strong {
-  box-shadow:0 0 44px 12px rgba(56,189,248,.82), 0 0 120px 34px rgba(56,189,248,.36);
-}
+/* .sd-w1 now uses cg-violet — see Nikita card section above */
 .cg-gold {
   background:linear-gradient(90deg,transparent,#f59e0b,transparent);
   box-shadow:0 0 22px 5px rgba(245,158,11,.46), 0 0 60px 14px rgba(245,158,11,.18);

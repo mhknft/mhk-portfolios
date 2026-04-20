@@ -363,6 +363,16 @@ body {
   );
 }
 
+/* "WORKED WITH" label above the scrolling badges */
+.eco-label {
+  text-align: center;
+  font-size: 9px; font-weight: 800; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--cyan);
+  opacity: 0.70;
+  margin-bottom: 14px;
+  pointer-events: none;
+}
+
 /* Subtle glowing divider line — the "track" the badges ride on */
 .eco-belt::before {
   content: '';
